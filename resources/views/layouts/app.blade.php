@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -19,7 +19,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link  href="/css/main.css" rel="stylesheet" type="text/css" >
+   {{-- <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --> --}}
 </head>
 <body>
     <div id="app">
@@ -56,24 +57,29 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <ul class='navbar-nav'>
+                               <!-- <li>
+                                <a  href="#" role="button" >
                                     {{ Auth::user()->name }}
                                 </a>
+                                </li>-->
 
-                                <div class="drop" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                               <li> <a class='nav-link' href="{{ url('/profile') }}">Profile</a></li>
+                               <li> <a class='nav-link' href="{{ url('/feed') }}">Feed</a> </li>
+
+                                <li>
+                                    <a class='nav-link'  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{-- {{ __('Logout') }} --}}Logout
                                     </a>
                                     
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form  id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div> 
-                            </li>
+                                </li> 
+                            </ul>
                         @endguest
                     </ul>
                 </div>
@@ -93,5 +99,6 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script  src='js/main.css'></script>
   
 </html>

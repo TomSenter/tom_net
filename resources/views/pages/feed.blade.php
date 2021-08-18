@@ -15,9 +15,10 @@
                         </div>
                     @endif
 
-                    <h2>{{$name}}</h2>
+                    <h2>{{$name}}</h2>  <h2>{{$email}}</h2>
+                    <!--here will be the posts from everyone on the site-->
 
-                    {{ __('Welcome to Tom Net') }}
+                    {{-- {{ __('Welcome to Tom Net') }} --}}
                 </div>
             </div>
         </div>

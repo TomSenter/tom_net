@@ -17,12 +17,17 @@ class FeedController extends Controller
 
 
     public function index(){      
+        // can add to the data array and pass it to the view
         // $id = Auth::id();
         // var_dump($id);
 
         $user =  Auth::user();
         $name =  $user->name;
+        $email = $user->email;
 
-       return view('pages.feed',['name'=>$name]);
+
+
+        $data = ['name'=>$name,'email'=>$email];
+       return view('pages.feed',$data);
     }
 }

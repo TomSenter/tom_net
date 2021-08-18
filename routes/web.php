@@ -23,3 +23,7 @@ Auth::routes();
 // can name the route for named routes
 
 Route::get('/feed', [App\Http\Controllers\Pages\FeedController::class, 'index']);
+
+Route::get('/profile',[App\Http\Controllers\Pages\ProfileController::class,'index']);
+
+Route::post('/profile/upload',[App\Http\Controllers\Pages\ProfileController::class,'upload']);
