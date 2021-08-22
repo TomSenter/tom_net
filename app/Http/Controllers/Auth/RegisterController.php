@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/profile';//RouteServiceProvider::HOME;
     // protected function redirectTo() {
     //     $id = Auth::id(); 
     //      return  '/feed/'.$id;

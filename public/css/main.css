@@ -2,3 +2,23 @@
     width:45rem;
     height:130px;
 }
+
+.profile_card img{
+    width: 80%;
+    height:auto;
+    margin:0 auto;
+}
+
+
+.photo_grid{
+    display: flex;
+    width: 50%;
+    margin: 25px auto;
+    background: #eee;
+    border-radius: 22px;
+}
+
+.photo_grid img{
+    width:150px;
+    margin: 20px;
+}

@@ -1,5 +1,6 @@
 window._ = require('lodash');
 
+// Vue = require('vue');
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -22,6 +23,9 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+// window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
+
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -29,13 +33,46 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo';
+import Echo from 'laravel-echo';
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    forceTLS: true
+});
+
+// console.log('hi');
+// Echo = require('laravel-echo');
 
 // window.Pusher = require('pusher-js');
+// //import window.Pusher from '../../node_modules/pusher-js';
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
+//     key: process.env.MIX_ABLY_PUBLIC_KEY,
+//     wsHost: 'realtime-pusher.ably.io',
+//     wsPort: 443,
+//     disableStats: true,
+//     encrypted: true,
 // });
+
+
+// import Echo from "laravel-echo";
+// window.io = require('socket.io-client');
+
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: window.location.hostname + ':6001' // this is laravel-echo-server host
+// });
+
+
+
+// Vue.config.productionTip = false
+// new Vue({
+//   router,
+//   store,
+//   render: h => h(App)
+// }).$mount('#app')
