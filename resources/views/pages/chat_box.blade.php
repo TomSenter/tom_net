@@ -38,7 +38,7 @@
     <div class="message_poster">
         <textarea name="post_message" id="post_message" placeholder="Send a message" ></textarea>
         <button type='button' id='send_message'  class='btn btn-info'>Send Message</button>
-</div>
+    </div>
 
 </div>
 <script>
@@ -114,18 +114,39 @@
 
        // getNewMessages();
 
-       Echo.channel('private-chat')
+       Echo.channel('private-chat.{{$chat_id}}')
                     .listen('.message-sent', (e) => {
 
                         console.log(e);
-                        let html = '<input type="hidden" class="message_id" value="'+e.message.message_id+'">';
-                     html += '<div style="background: violet;" class="sender_message card">';
-                    html+= '<div class="card-body">';
-                       html+= e.message.message_content+' '+e.user.sender;
-                    html+='</div>';
-                html+='</div>';
+
+                        let html = '';
+                        if({{$user_id}} == e.message.sender){
+
+
+                             html += '<input type="hidden" class="message_id" value="'+e.message.message_id+'">';
+                            html += '<div style="background: violet;" class="sender_message card">';
+                            html+= '<div class="card-body">';
+                            html+= e.message.message_content+' '+e.user.name;
+                            html+='</div>';
+                             html+='</div>';
+
+                        }else{
+
+
+                             html += '<input type="hidden" class="message_id" value="'+e.message.message_id+'">';
+                            html += '<div style="background: lightblue;" class="receiver_message card">';
+                            html+= '<div class="card-body">';
+                            html+= e.message.message_content+' '+e.user.name;
+                            html+='</div>';
+                            html+='</div>';
+
+
+                        }
+                      
+                      //  console.log(html);
 
                 $('#message_lists').append(html);
+
                     });
 
 
@@ -146,6 +167,8 @@
                 data:JSON.stringify({chat_id:chat_id,message_content:message_content}),
                 success: function(data){  
                      console.log(data);
+
+                     // this accesses the send message broadcast event
 
                     //  let message = [];
 

@@ -97,7 +97,8 @@
                                     {{ Auth::user()->name }}
                                 </a>
                                 </li>-->
-
+                                
+                                <li> <a class='nav-link' href="{{ url('/search') }}">Search</a></li>
                                <li> <a class='nav-link' href="{{ url('/profile') }}">Profile</a></li>
                                <li> <a class='nav-link' href="{{ url('/feed') }}">Feed</a> </li>
                                <li> <a class='nav-link' href="{{ url('/chats') }}">Chats</a> </li>

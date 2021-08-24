@@ -62,3 +62,8 @@ Route::post('/chat/send_message',[App\Http\Controllers\Pages\ChatsController::cl
 //     event(new App\Events\TestEvent());
 //     return 'ok';
 // });
+
+
+// page search
+
+Route::get('/search',[App\Http\Controllers\Pages\SearchController::class,'index']);

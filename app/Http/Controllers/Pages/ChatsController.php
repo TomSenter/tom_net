@@ -122,6 +122,7 @@ class ChatsController extends Controller
         }
 
       
+        $messages_array['user_id'] = Auth::id();
 
 
        // return response($messages_array);

@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Scout\Searchable;
 
 class Users extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable,Searchable;
 
 
     protected $table = 'users';

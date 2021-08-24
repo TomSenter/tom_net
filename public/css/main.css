@@ -22,3 +22,21 @@
     width:150px;
     margin: 20px;
 }
+
+/*messages*/
+
+.receiver_message,.sender_message{
+    width:50%;
+    margin:20px;
+    
+}
+
+.receiver_message{
+    float:left;
+
+}
+
+.sender_message{
+    float:right;
+
+}
