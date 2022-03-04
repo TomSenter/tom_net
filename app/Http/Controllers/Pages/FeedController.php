@@ -45,15 +45,6 @@ class FeedController extends Controller
         }
 
 
-        
-
-
-        
-
-
-
-
-
         $data = ['name'=>$name,'email'=>$email,'posts'=>$posts_array,'id'=>$id];
        return view('pages.feed',$data);
     }

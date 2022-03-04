@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Users;
 use App\Models\Posts;
 use App\Models\Photos;
+use App\Models\Friends;
 
 
 
@@ -65,13 +66,58 @@ class ProfileController extends Controller
             'username'=>$username,
             'profile_pic'=>'/storage/profile_images/'.$profile_pic,
             'posts'=>$posts_array,
-            'album_photos'=>$albums_array
+            'album_photos'=>$albums_array,
+            'not_their_profile'=>false
         ];
 
 
         return view('pages.profile',$data);
     }
 
+
+    // add a friend function
+    public function add_friend(){
+
+        $post_data =  file_get_contents('php://input'); 
+
+        
+
+        $decoded_data = get_object_vars(json_decode($post_data));
+
+        // $friends = new Friends;
+
+        $this_user = Friends::select('friends')->where('user_id', Auth::id())->get();
+        // return $this_user;
+        if(count($this_user) > 1){
+            // echo '1';
+                    $current_friends = json_decode($this_user->friends);
+
+                    if($current_friends){
+                            array_push($current_friends,$decoded_data['id']);
+                    }else{
+                            $current_friends = [];
+                            array_push($current_friends,$decoded_data['id']);
+                    }
+
+
+        }else{
+
+            // echo '2';
+            $current_friends = [$decoded_data['id']];
+
+
+        }
+
+
+        $friends = Friends::updateOrCreate(['user_id' => Auth::id()], [ 
+            'friends' => json_encode($current_friends)
+        ]);
+
+
+        return json_encode($friends);
+
+    }
+    // end of add a friend function
 
     public function delete_photos(){
 
@@ -83,9 +129,11 @@ class ProfileController extends Controller
 
 
 
+        // redirect to profile from delete
         return redirect('profile');
 
     }
+    //end of delete photos function
 
     public function delete_posts(){
 
@@ -158,6 +206,76 @@ class ProfileController extends Controller
       
 
     }
+
+
+
+    // view another users profile
+    public function view_other_profile($id){
+
+        // if id is the same as the auth just redirect to normal profile page
+
+        // redirect
+        if($id  == Auth::id()){
+            return redirect('/profile');
+
+
+        }
+        $user =  Users::find($id);
+
+
+
+
+        $name = $user->name;
+        $username = $user->username;
+        $email = $user->email;
+        $profile_pic = $user->profile_picture;
+
+
+        // get posts and add to data
+
+        
+       
+
+      //  var_dump(Posts::where('user_id',$id)->get());
+      $posts_array =[];
+
+        foreach(Posts::where('user_id',$id)->orderByRaw('updated_at DESC')->get() as $c){
+           $posts_array[] = $c;
+        }
+
+        //var_dump($posts_array);exit;
+
+
+        // get photos for album
+        $albums_array = [];
+       // var_dump(Photos::where('user_id',$id)->orderByRaw('created_at DESC')->get());
+        foreach(Photos::where('user_id',$id)->orderByRaw('created_at DESC')->get() as $p){
+           $albums_array[] = [
+               'photo'=>'/storage/user'.$id.'_album_images/'.$p->photo,
+               'id'=>$p->photo_id
+           ];
+        }
+
+        
+
+        // end of get photos for album
+
+        $data = [
+            'name'=> $name,
+            'email'=>$email,
+            'username'=>$username,
+            'profile_pic'=>'/storage/profile_images/'.$profile_pic,
+            'posts'=>$posts_array,
+            'album_photos'=>$albums_array,
+            'not_their_profile'=>true,
+            'id'=>$id
+        ];
+
+
+        return view('pages.profile',$data);
+    }
+
+    //end of view another users profile
 
 
 

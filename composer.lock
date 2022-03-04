@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "009b0026cdbe67eb9c9013c50b2c7ff3",
+    "content-hash": "b3adb78b98119be92bbeda522bc25cc6",
     "packages": [
         {
             "name": "ably/ably-php",
@@ -57,6 +57,80 @@
                 "source": "https://github.com/ably/ably-php/tree/1.1.4"
             },
             "time": "2021-03-10T14:30:30+00:00"
+        },
+        {
+            "name": "algolia/algoliasearch-client-php",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/algolia/algoliasearch-client-php.git",
+                "reference": "42793a97c99a68adfe8e39eadadd970b5196f208"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/42793a97c99a68adfe8e39eadadd970b5196f208",
+                "reference": "42793a97c99a68adfe8e39eadadd970b5196f208",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.2 || ^8.0",
+                "psr/http-message": "^1.0",
+                "psr/log": "^1.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0",
+                "fzaninotto/faker": "^1.8",
+                "phpunit/phpunit": "^8.0 || ^9.0",
+                "symfony/yaml": "^2.0 || ^4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "If you prefer to use Guzzle HTTP client instead of the Http Client implementation provided by the package"
+            },
+            "bin": [
+                "bin/algolia-doctor"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.0": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Algolia\\AlgoliaSearch\\": "src/"
+                },
+                "files": [
+                    "src/Http/Psr7/functions.php",
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Algolia Team",
+                    "email": "contact@algolia.com"
+                }
+            ],
+            "description": "Algolia Search API Client for PHP",
+            "keywords": [
+                "algolia",
+                "api",
+                "client",
+                "php",
+                "search"
+            ],
+            "support": {
+                "issues": "https://github.com/algolia/algoliasearch-client-php/issues",
+                "source": "https://github.com/algolia/algoliasearch-client-php/tree/3.1.0"
+            },
+            "time": "2021-08-31T14:17:19+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -1765,16 +1839,16 @@
         },
         {
             "name": "meilisearch/meilisearch-php",
-            "version": "v0.18.3",
+            "version": "v0.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/meilisearch/meilisearch-php.git",
-                "reference": "8d649236dde23292d2f4b637dc3f71d1d56437f5"
+                "reference": "0b592c1d2b3e642d618254a7ff5716874b72fabf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/meilisearch/meilisearch-php/zipball/8d649236dde23292d2f4b637dc3f71d1d56437f5",
-                "reference": "8d649236dde23292d2f4b637dc3f71d1d56437f5",
+                "url": "https://api.github.com/repos/meilisearch/meilisearch-php/zipball/0b592c1d2b3e642d618254a7ff5716874b72fabf",
+                "reference": "0b592c1d2b3e642d618254a7ff5716874b72fabf",
                 "shasum": ""
             },
             "require": {
@@ -1826,9 +1900,9 @@
             ],
             "support": {
                 "issues": "https://github.com/meilisearch/meilisearch-php/issues",
-                "source": "https://github.com/meilisearch/meilisearch-php/tree/v0.18.3"
+                "source": "https://github.com/meilisearch/meilisearch-php/tree/v0.20.0"
             },
-            "time": "2021-06-30T14:17:44+00:00"
+            "time": "2021-11-17T20:46:29+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6381,6 +6455,66 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "yab/laravel-scout-mysql-driver",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yabhq/laravel-scout-mysql-driver.git",
+                "reference": "501babf30d1a8b802b7ac3e0f3ffc220fd20120d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yabhq/laravel-scout-mysql-driver/zipball/501babf30d1a8b802b7ac3e0f3ffc220fd20120d",
+                "reference": "501babf30d1a8b802b7ac3e0f3ffc220fd20120d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/scout": "~6.0|~7.0|~8.0|~9.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "5.6.* || 5.7.* || 5.8.* || ^6.0 || ^7.0 || ^8.0",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "8.5.x-dev"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yab\\MySQLScout\\Providers\\MySQLScoutServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yab\\MySQLScout\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Crisafulli",
+                    "email": "damian.crisafulli@troyweb.com"
+                },
+                {
+                    "name": "Matt Lantz",
+                    "email": "matt@yabhq.com"
+                }
+            ],
+            "description": "MySQL driver for Laravel Scout.",
+            "support": {
+                "issues": "https://github.com/yabhq/laravel-scout-mysql-driver/issues",
+                "source": "https://github.com/yabhq/laravel-scout-mysql-driver/tree/v5.0.0"
+            },
+            "time": "2021-08-10T10:20:29+00:00"
         }
     ],
     "packages-dev": [

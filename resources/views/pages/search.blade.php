@@ -23,14 +23,15 @@
            
               @foreach ($results as $r)
               <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{$image_path.$r->profile_picture}}" alt="Card image cap">
+                <img class="card-img-top" src="{{$image_path.$r->profile_picture}}" alt="No profile picture">
                 <div class="card-body">
                   <h5 class="card-title">{{$r->name}}</h5>
                   <p class="card-text">
                       Username: {{$r->username}}
                       Email: {{$r->email}}
+                      {{$r->user_id}}
                 </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a  href="{{url('/profile/'.$r->user_id)}}" class="btn btn-primary">View Profile</a>
                 </div>
               @endforeach
               @else 

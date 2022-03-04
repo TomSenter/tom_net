@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'meilisearch'),
+    'driver' => env('SCOUT_DRIVER', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -133,5 +133,17 @@ return [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY', 'masterKey'),
     ],
+
+
+
+    // mysql search
+    'mysql' => [
+        'mode' => 'NATURAL_LANGUAGE',
+        'model_directories' => [app_path()],
+        'min_search_length' => 0,
+        'min_fulltext_search_length' => 100,
+        'min_fulltext_search_fallback' => 'LIKE',
+        'query_expansion' => false
+    ]
 
 ];

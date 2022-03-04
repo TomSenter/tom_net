@@ -39,9 +39,13 @@ Route::get('/profile/photo_delete',[App\Http\Controllers\Pages\ProfileController
 
 Route::get('/feed/post_delete',[App\Http\Controllers\Pages\FeedController::class,'delete_posts']);
 
+Route::get('/profile/{id}',[App\Http\Controllers\Pages\ProfileController::class,'view_other_profile']);
+
 Route::get('/profile',[App\Http\Controllers\Pages\ProfileController::class,'index']);
 
 Route::post('/profile/upload',[App\Http\Controllers\Pages\ProfileController::class,'upload']);
+
+Route::post('/add_friend',[App\Http\Controllers\Pages\ProfileController::class,'add_friend']);
 
 
 // message and chat routes

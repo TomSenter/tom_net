@@ -23,7 +23,7 @@ class SearchController extends Controller
 
 
         if($query = $request->get('query')){
-            // do something here 
+            
 
            $results =  Users::search($query)->get();
 
